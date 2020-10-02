@@ -55,6 +55,7 @@ public class PointAndShoot : MonoBehaviour{
 	}
 
 	public void Deactivate(){
+		DisableHighlight();
 		_isActive = false;
 	}
 
@@ -81,8 +82,10 @@ public class PointAndShoot : MonoBehaviour{
 	public void ScorePuckAndPutOnCooldown(){
 		_currentPhase = PuckPhase.OUT_OF_PLAY;
 		_trailRenderer.enabled = false;
-		Instantiate(onExplosionInstantiate, this.transform.position, Quaternion.identity);
+		DisableHighlight();
 		SetCooldown(3);
+
+		Instantiate(onExplosionInstantiate, this.transform.position, Quaternion.identity);
 	}
 
 	public Boolean IsHighlighted(){

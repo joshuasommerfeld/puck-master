@@ -140,16 +140,12 @@ public abstract class PuckMasterPlayer : MonoBehaviour{
       return;
     }
     
-    if (activePuck.isStopped()){
+    if (pmgm.AllPucksAreStopped()){
       EndTurn();
     }
   }
   
   protected void EndTurn(){
-    foreach (var puck in pucks){
-      puck.DisableHighlight();
-    }
-    
     pmgm.EndTurn();
   }
 }

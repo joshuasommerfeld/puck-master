@@ -66,4 +66,16 @@ public class PuckMasterGameManager : MonoBehaviour{
 
 		return null;
 	}
+
+	public Boolean AllPucksAreStopped(){
+		foreach (var player in _players){
+			foreach (var pointAndShoot in player.GetPucks()){
+				if (!pointAndShoot.isStopped()){
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
 }
