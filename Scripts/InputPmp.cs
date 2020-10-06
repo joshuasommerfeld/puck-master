@@ -10,11 +10,14 @@ public class InputPmp : PuckMasterPlayer {
 	private Camera _camera;
 
 	private InputController _inputController;
+
+	private PowerIndicator _powerIndicator;
 	
 	private new void Awake(){
 		base.Awake();
 		_camera = Camera.main;
 		_inputController = GetComponent<InputController>();
+		_powerIndicator = GetComponentInChildren<PowerIndicator>();
 	}
 
 	private void HandleShooting(){
@@ -30,6 +33,8 @@ public class InputPmp : PuckMasterPlayer {
 					aimChevron.Activate();
 					if (_inputController.IsShootingPuck()){
 						currentPhase = TurnPhase.IS_SHOOTING;
+						aimChevron.LockChevron();
+						_powerIndicator.Activate(GetActivePuck().transform.position, aimChevron.transform.position);
 					}
 					break;
 		}
@@ -38,6 +43,7 @@ public class InputPmp : PuckMasterPlayer {
 	private void TriggerShot(){
 		if (_inputController.ShotReleased()){
 			currentPhase = TurnPhase.HAS_SHOT;
+			_powerIndicator.Deactive();
 		}
 	}
 

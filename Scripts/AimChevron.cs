@@ -30,6 +30,10 @@ public class AimChevron : MonoBehaviour {
 		_spriteRenderer.enabled = true;
 		_isActive = true;
 	}
+
+	public void LockChevron(){
+		_isActive = false;
+	}
 	
 	public void Deactivate(){
 		_collider.enabled = false;
