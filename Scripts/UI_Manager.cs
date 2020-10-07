@@ -15,9 +15,6 @@ public class UI_Manager : MonoBehaviour{
 
 	private PuckMasterPlayer _player1;
 	private PuckMasterPlayer _player2;
-
-	private int _activePlayerIndex = -1;
-	private int _activePuckIndex = -1;
 	
 	// Use this for initialization
 	void Start (){

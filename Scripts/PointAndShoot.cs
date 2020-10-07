@@ -5,9 +5,10 @@ public class PointAndShoot : MonoBehaviour{
 	private Rigidbody2D _rb;
 	private PuckHighlight _puckHighlight;
 	private TrailRenderer _trailRenderer;
-
 	private Guid _uuid;
 	private int _cooldown;
+
+	private SpecialManager _special;
 
 	public GameObject onExplosionInstantiate;
 
@@ -26,7 +27,12 @@ public class PointAndShoot : MonoBehaviour{
 		_rb = GetComponent<Rigidbody2D>();
 		_puckHighlight = GetComponentInChildren<PuckHighlight>();
 		_trailRenderer = GetComponentInChildren<TrailRenderer>();
+		_special = GetComponentInChildren<SpecialManager>();
 		_trailRenderer.enabled = false;
+	}
+
+	public SpecialManager GetPuckSpecial(){
+		return _special;
 	}
 
 	public bool IsInPlay(){

@@ -7,7 +7,6 @@ public class InputPmp : PuckMasterPlayer {
 	public int clickForceDelta = 10;
 	
 	private int _clickForce = 0;
-	private Camera _camera;
 
 	private InputController _inputController;
 
@@ -15,12 +14,11 @@ public class InputPmp : PuckMasterPlayer {
 	
 	private new void Awake(){
 		base.Awake();
-		_camera = Camera.main;
 		_inputController = GetComponent<InputController>();
 		_powerIndicator = GetComponentInChildren<PowerIndicator>();
 	}
 
-	private void HandleShooting(){
+	protected override void HandleShooting(){
 		switch (GetActivePuck().GetPuckPhase()){
 				case PointAndShoot.PuckPhase.READY:
 					deploymentArea.Activate();
@@ -40,7 +38,7 @@ public class InputPmp : PuckMasterPlayer {
 		}
 	}
 
-	private void TriggerShot(){
+	protected override void TriggerShot(){
 		if (_inputController.ShotReleased()){
 			currentPhase = TurnPhase.HAS_SHOT;
 			_powerIndicator.Deactive();
@@ -68,12 +66,12 @@ public class InputPmp : PuckMasterPlayer {
 		GetActivePuck().EnableHighlight();
 	}
 
-	private void HandlePreTurn(){
+	protected override void HandlePreTurn(){
 		IterateActivePuck(0);
 		currentPhase = TurnPhase.SELECT_PUCK;
 	}
 	
-	private void HandleSelectPuck(){
+	protected override void HandleSelectPuck(){
 		var i = _inputController.ChangePuckIndex();
 		if(i != 0){
 			IterateActivePuck(i);
@@ -81,25 +79,6 @@ public class InputPmp : PuckMasterPlayer {
 
 		if (_inputController.GetPuckSelect()){
 			currentPhase = TurnPhase.PRE_SHOT;
-		}
-	}
-	
-	void Update(){
-		switch (currentPhase){
-			case TurnPhase.INACTIVE:
-				return;
-			case TurnPhase.PRE_TURN:
-				HandlePreTurn();
-				break;
-			case TurnPhase.SELECT_PUCK:
-				HandleSelectPuck();
-				break;
-			case TurnPhase.PRE_SHOT:
-				HandleShooting();
-				break;
-			case TurnPhase.IS_SHOOTING:
-				TriggerShot();
-				break;
 		}
 	}
 
@@ -110,7 +89,11 @@ public class InputPmp : PuckMasterPlayer {
 		return mouseDir;
 	}
 
-	private void MakeShot(){
+	protected override void HandleIsShooting(){
+		_clickForce += clickForceDelta;
+	}
+
+	protected override void MakeShot(){
 		Vector3 shotDirection = ShotDirection();
 		GetActivePuck().ShootPuck(shotDirection * _clickForce);
 		
@@ -118,20 +101,5 @@ public class InputPmp : PuckMasterPlayer {
 		currentPhase = TurnPhase.POST_SHOT;
 		aimChevron.Deactivate();
 	}
-  
-	void FixedUpdate(){
-		switch (currentPhase){
-			case TurnPhase.INACTIVE:
-				return;
-			case TurnPhase.IS_SHOOTING:
-				_clickForce += clickForceDelta;
-				break;
-			case TurnPhase.HAS_SHOT:
-				MakeShot();
-				break;
-			case TurnPhase.POST_SHOT:
-				base.CheckForTurnEnd();
-				break;
-		}
-	}
+
 }
