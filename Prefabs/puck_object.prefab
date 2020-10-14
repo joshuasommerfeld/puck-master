@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puckSprite: {fileID: 21300000, guid: cf65eb1f7f4b908458c5bc25aa9dd1c7, type: 3}
+  avatarSprite: {fileID: 21300000, guid: cf65eb1f7f4b908458c5bc25aa9dd1c7, type: 3}
 --- !u!1 &1675518933275122
 GameObject:
   m_ObjectHideFlags: 0

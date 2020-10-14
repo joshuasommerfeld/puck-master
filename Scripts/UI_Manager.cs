@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour{
@@ -10,6 +8,9 @@ public class UI_Manager : MonoBehaviour{
 
 	public UI_PuckStatus[] Player1Pucks;
 	public UI_PuckStatus[] Player2Pucks;
+
+	public UI_PuckAvatar Player1Avatar;
+	public UI_PuckAvatar Player2Avatar;
 
 	private PuckMasterGameManager _pmgm;
 
@@ -24,6 +25,8 @@ public class UI_Manager : MonoBehaviour{
 		
 		RegisterPucksWithUI(_player1, Player1Pucks);
 		RegisterPucksWithUI(_player2, Player2Pucks);
+		Player1Avatar.RegisterPlayer(_player1);
+		Player2Avatar.RegisterPlayer(_player2);
 	}
 
 	private void RegisterPucksWithUI(PuckMasterPlayer player, UI_PuckStatus[] pucksText){

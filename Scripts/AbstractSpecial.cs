@@ -5,7 +5,8 @@ using UnityEngine;
 public abstract class AbstractSpecial : MonoBehaviour{
 
   public Sprite puckSprite;
-
+  public Sprite avatarSprite;
+  
   protected InputController ic;
 
   protected PuckMasterPlayer player;

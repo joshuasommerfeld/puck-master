@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: 895c62cd58b28354090e3e1a0bf8d9c3
-timeCreated: 1602030437
-licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - puckSprite: {fileID: 21300000, guid: cf65eb1f7f4b908458c5bc25aa9dd1c7, type: 3}
+  - avatarSprite: {fileID: 21300000, guid: cf65eb1f7f4b908458c5bc25aa9dd1c7, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

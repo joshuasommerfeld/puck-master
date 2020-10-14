@@ -37,6 +37,10 @@ public class SpecialManager : MonoBehaviour{
 		player = _player;
 		activeSpecial.Initialise(_player, _puck);
 	}
+
+	public Sprite GetSpecialAvatar(){
+		return activeSpecial.avatarSprite;
+	}
 	
 	public void AddInputController(InputController ic){
 		foreach (var _special in specials){
