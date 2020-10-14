@@ -22,6 +22,10 @@ public class PointAndShoot : MonoBehaviour{
 	
 	private PuckPhase _currentPhase = PuckPhase.READY;
 	
+	/*
+	 * Lifecycle events
+	 */
+	
 	void Awake(){
 		_uuid = Guid.NewGuid();
 		_rb = GetComponent<Rigidbody2D>();
@@ -30,32 +34,20 @@ public class PointAndShoot : MonoBehaviour{
 		_special = GetComponentInChildren<SpecialManager>();
 		_trailRenderer.enabled = false;
 	}
+	
+	/*
+	 * Mutation events
+	 */
 
-	public SpecialManager GetPuckSpecial(){
-		return _special;
-	}
-
-	public bool IsInPlay(){
-		return !_currentPhase.Equals(PuckPhase.OUT_OF_PLAY);
-	}
-
-	public PuckPhase GetPuckPhase(){
-		return _currentPhase;
+	public void Initialise(PuckMasterPlayer _player){
+		_special.Initialise(_player, this);
+		this.tag = _player.tag;
 	}
 	
-	public string GetPuckPhaseAsString(){
-		return _currentPhase.ToString();
-	}
-	
-	public void Ready(){
-		_currentPhase = PuckPhase.READY;
+	public void AddInputController(InputController ic){
+		_special.AddInputController(ic);
 	}
 
-	public void InPlay(){
-		_trailRenderer.enabled = true;
-		_currentPhase = PuckPhase.IN_PLAY;
-	}
-	
 	public void Activate(){
 		_isActive = true;
 	}
@@ -64,15 +56,11 @@ public class PointAndShoot : MonoBehaviour{
 		DisableHighlight();
 		_isActive = false;
 	}
-
-	public Guid GetID(){
-		return _uuid;
+	
+	public void Ready(){
+		_currentPhase = PuckPhase.READY;
 	}
 	
-	public bool HasGuid(Guid uuid){
-		return _uuid.Equals(uuid);
-	}
-
 	public void SetCooldown(int c){
 		_cooldown = c;
 	}
@@ -80,11 +68,12 @@ public class PointAndShoot : MonoBehaviour{
 	public void DecrementCooldown(){
 		_cooldown--;
 	}
-
-	public int GetCooldown(){
-		return _cooldown;
+	
+	public void InPlay(){
+		_trailRenderer.enabled = true;
+		_currentPhase = PuckPhase.IN_PLAY;
 	}
-
+	
 	public void ScorePuckAndPutOnCooldown(){
 		_currentPhase = PuckPhase.OUT_OF_PLAY;
 		_trailRenderer.enabled = false;
@@ -92,10 +81,6 @@ public class PointAndShoot : MonoBehaviour{
 		SetCooldown(3);
 
 		Instantiate(onExplosionInstantiate, this.transform.position, Quaternion.identity);
-	}
-
-	public Boolean IsHighlighted(){
-		return _puckHighlight.IsHighlighted();
 	}
 	
 	public void EnableHighlight(){
@@ -109,8 +94,52 @@ public class PointAndShoot : MonoBehaviour{
 	public void ShootPuck(Vector3 force){
 		_rb.AddForce(force);
 	}
+	
+	public void StopPuck(){
+		_rb.velocity = Vector3.zero;
+	}
 
-	public Boolean isStopped(){
+	/*
+	* Getters events
+	*/
+	
+	public SpecialManager GetPuckSpecial(){
+		return _special;
+	}
+	
+	public bool IsInPlay(){
+		return !_currentPhase.Equals(PuckPhase.OUT_OF_PLAY);
+	}
+
+	public PuckPhase GetPuckPhase(){
+		return _currentPhase;
+	}
+	
+	public string GetPuckPhaseAsString(){
+		return _currentPhase.ToString();
+	}
+	
+	public bool IsActive(){
+		return _isActive;
+	}
+	
+	public Guid GetID(){
+		return _uuid;
+	}
+	
+	public bool HasGuid(Guid uuid){
+		return _uuid.Equals(uuid);
+	}
+
+	public int GetCooldown(){
+		return _cooldown;
+	}
+	
+	public Boolean IsHighlighted(){
+		return _puckHighlight.IsHighlighted();
+	}
+	
+	public Boolean IsStopped(){
 		return _rb.velocity.magnitude < 0.05;
 	}
 }

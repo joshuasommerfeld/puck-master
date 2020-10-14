@@ -70,7 +70,7 @@ public class PuckMasterGameManager : MonoBehaviour{
 	public Boolean AllPucksAreStopped(){
 		foreach (var player in _players){
 			foreach (var pointAndShoot in player.GetPucks()){
-				if (!pointAndShoot.isStopped()){
+				if (!pointAndShoot.IsStopped()){
 					return false;
 				}
 			}

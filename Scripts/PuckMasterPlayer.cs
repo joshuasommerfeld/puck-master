@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
 using JetBrains.Annotations;
 using UnityEngine;
 
 public abstract class PuckMasterPlayer : MonoBehaviour{
-  protected enum TurnPhase{
+  public enum TurnPhase{
     INACTIVE,
     PRE_TURN,
     SELECT_PUCK,
@@ -32,7 +31,8 @@ public abstract class PuckMasterPlayer : MonoBehaviour{
   protected DeploymentArea deploymentArea;
 
   protected AimChevron aimChevron;
-
+  protected PowerIndicator powerIndicator;
+  
   /*
    * Lifecycle
    */
@@ -41,7 +41,8 @@ public abstract class PuckMasterPlayer : MonoBehaviour{
     pucks = GetComponentsInChildren<PointAndShoot>();
     aimChevron = GetComponentInChildren<AimChevron>();
     pmgm = FindObjectOfType<PuckMasterGameManager>();
-
+    powerIndicator = GetComponentInChildren<PowerIndicator>();
+      
     foreach (var da in FindObjectsOfType<DeploymentArea>()){
       if (this.tag.Equals(da.tag)){
         deploymentArea = da;
@@ -51,8 +52,8 @@ public abstract class PuckMasterPlayer : MonoBehaviour{
 
   protected void Start(){
     foreach (var puck in pucks){
+      puck.Initialise(this);
       puck.gameObject.GetComponent<Renderer>().material.SetColor("_Color", PlayerColors[playerNumber]);
-      puck.gameObject.tag = gameObject.tag;
     }
   }
   
@@ -164,6 +165,10 @@ public abstract class PuckMasterPlayer : MonoBehaviour{
 
   public int GetScore(){
     return score;
+  }
+
+  public TurnPhase GetCurrentPhase(){
+    return currentPhase;
   }
   
   /*

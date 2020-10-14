@@ -1,47 +1,70 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpecialManager : MonoBehaviour{
 
-	private AbstractSpecial _special;
+	protected AbstractSpecial[] specials;
+
+	protected AbstractSpecial activeSpecial;
+
+	protected PointAndShoot puck;
+	protected PuckMasterPlayer player;
 
 	private SpriteRenderer _specialSpriteRenderer;
 
 	private bool SpecialExists(){
-		return _special != null;
+		return activeSpecial != null;
 	}
 	
 	// Use this for initialization
-	void Start (){
+	void Awake (){
 		_specialSpriteRenderer = GetComponent<SpriteRenderer>();
-		_special = GetComponent<AbstractSpecial>();
+		specials = GetComponents<AbstractSpecial>();
+		var activeSpecials = specials.Where(_as => _as.enabled).ToArray();
+		if (activeSpecials.Length > 0){
+			activeSpecial = activeSpecials[0];
+		}
+		
 		if (SpecialExists()){
-			_specialSpriteRenderer.sprite = _special.puckSprite;
+			_specialSpriteRenderer.sprite = activeSpecial.puckSprite;
+		}
+	}
+
+	public void Initialise(PuckMasterPlayer _player, PointAndShoot _puck){
+		puck = _puck;
+		player = _player;
+		activeSpecial.Initialise(_player, _puck);
+	}
+	
+	public void AddInputController(InputController ic){
+		foreach (var _special in specials){
+			_special.AddInputController(ic);
 		}
 	}
 
 	public void StartTurn(){
 		if (SpecialExists()){
-			_special.StartTurn();
+			activeSpecial.StartTurn();
 		}
 	}
 
 	public void PreShot(){
 		if (SpecialExists()){
-			_special.PreShot();
+			activeSpecial.PreShot();
 		}
 	}
 
 	public void IsShooting(){
 		if (SpecialExists()){
-			_special.IsShooting();
+			activeSpecial.IsShooting();
 		}
 	}
 
 	public void PostShot(){
 		if (SpecialExists()){
-			_special.PostShot();
+			activeSpecial.PostShot();
 		}
 	}
 }

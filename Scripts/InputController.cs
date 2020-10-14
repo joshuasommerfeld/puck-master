@@ -23,7 +23,7 @@ public class InputController : MonoBehaviour{
   private bool IsGamepad(){
     return _config.GetConfig("inputType") == "gamepad";
   }
-  
+
   private bool IsMouseAndKeyboard(){
     return _config.GetConfig("inputType") == "mouse";
   }
@@ -31,26 +31,29 @@ public class InputController : MonoBehaviour{
   private void selectCooldown(){
     _selectionCooldown = 0.5f;
   }
-  
+
   public int ChangePuckIndex(){
     if (IsGamepad()){
       if (_selectionCooldown > 0){
         return 0;
       }
+
       if (Input.GetAxis("Vertical") < -0.8f){
         selectCooldown();
         return 1;
       }
+
       if (Input.GetAxis("Vertical") > 0.8f){
         selectCooldown();
         return -1;
       }
     }
-    
+
     if (IsMouseAndKeyboard()){
       if (Input.GetKeyDown("down")){
         return 1;
       }
+
       if (Input.GetKeyDown("up")){
         return -1;
       }
@@ -59,7 +62,7 @@ public class InputController : MonoBehaviour{
     return 0;
   }
 
-  public bool GetPuckSelect(){
+  public bool GetSubmit(){
     if (IsGamepad()){
       return Input.GetButtonUp("Submit");
     }
@@ -68,19 +71,14 @@ public class InputController : MonoBehaviour{
       return Input.GetMouseButtonUp(0);
     }
 
-    return false;
+    return false;  }
+
+  public bool GetPuckSelect(){
+    return GetSubmit();
   }
   
   public bool GetPuckPlace(){
-    if (IsGamepad()){
-      return Input.GetButtonUp("Submit");
-    }
-
-    if (IsMouseAndKeyboard()){
-      return Input.GetMouseButtonUp(0);
-    }
-
-    return false;
+    return GetSubmit();
   }
   
   public bool IsShootingPuck(){

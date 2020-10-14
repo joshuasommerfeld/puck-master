@@ -9,13 +9,13 @@ public class InputPmp : PuckMasterPlayer {
 	private int _clickForce = 0;
 
 	private InputController _inputController;
-
-	private PowerIndicator _powerIndicator;
 	
 	private new void Awake(){
 		base.Awake();
 		_inputController = GetComponent<InputController>();
-		_powerIndicator = GetComponentInChildren<PowerIndicator>();
+		foreach (var puck in pucks){
+			puck.AddInputController(_inputController);
+		}
 	}
 
 	protected override void HandleShooting(){
@@ -32,7 +32,7 @@ public class InputPmp : PuckMasterPlayer {
 					if (_inputController.IsShootingPuck()){
 						currentPhase = TurnPhase.IS_SHOOTING;
 						aimChevron.LockChevron();
-						_powerIndicator.Activate(GetActivePuck().transform.position, aimChevron.transform.position);
+						powerIndicator.Activate(GetActivePuck().transform.position, aimChevron.transform.position);
 					}
 					break;
 		}
@@ -41,7 +41,7 @@ public class InputPmp : PuckMasterPlayer {
 	protected override void TriggerShot(){
 		if (_inputController.ShotReleased()){
 			currentPhase = TurnPhase.HAS_SHOT;
-			_powerIndicator.Deactive();
+		  powerIndicator.Deactive();
 		}
 	}
 
