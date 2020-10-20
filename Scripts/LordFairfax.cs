@@ -13,7 +13,7 @@ public class LordFairfax : AbstractSpecial {
       return;
     }
 
-    if (this.player.GetCurrentPhase() == PuckMasterPlayer.TurnPhase.POST_SHOT){
+    if (player.GetCurrentPhase() == PuckMasterPlayer.TurnPhase.POST_SHOT){
       if (ic.GetSubmit()){
         StopPuck();
       }

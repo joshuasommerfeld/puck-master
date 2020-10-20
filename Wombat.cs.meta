@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6f2b1b5aeb5e91f4b802831c2e9624e7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - puckSprite: {fileID: 21300000, guid: fd2ddd2a1c645764a947410b88079f0a, type: 3}
+  - avatarSprite: {fileID: 21300000, guid: f021617663730fb469c07c9d05feb77f, type: 3}
+  - wombatPoop: {fileID: 9014775147926019947, guid: 1ee5708149e6ca442a5489664f5ccdf9,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

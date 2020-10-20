@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 212813928608203544}
   - component: {fileID: 114125809574700546}
   - component: {fileID: 2175646379666432018}
+  - component: {fileID: 8837670498158859356}
   m_Layer: 0
   m_Name: special
   m_TagString: Untagged
@@ -218,6 +219,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puckSprite: {fileID: 21300000, guid: cf65eb1f7f4b908458c5bc25aa9dd1c7, type: 3}
   avatarSprite: {fileID: 21300000, guid: cf65eb1f7f4b908458c5bc25aa9dd1c7, type: 3}
+  poopObject: {fileID: 0}
+--- !u!114 &8837670498158859356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259105814765180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2b1b5aeb5e91f4b802831c2e9624e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puckSprite: {fileID: 21300000, guid: fd2ddd2a1c645764a947410b88079f0a, type: 3}
+  avatarSprite: {fileID: 21300000, guid: f021617663730fb469c07c9d05feb77f, type: 3}
+  wombatPoop: {fileID: 9014775147926019947, guid: 1ee5708149e6ca442a5489664f5ccdf9,
+    type: 3}
 --- !u!1 &1675518933275122
 GameObject:
   m_ObjectHideFlags: 0

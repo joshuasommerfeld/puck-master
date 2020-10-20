@@ -17,7 +17,6 @@ public class UI_PuckAvatar : MonoBehaviour{
   }
 
   private void Update(){
-    Debug.Log( _player.GetActivePuck().GetPuckSpecial().GetSpecialAvatar());
     _image.sprite = _player.GetActivePuck().GetPuckSpecial().GetSpecialAvatar();
   }
 }
