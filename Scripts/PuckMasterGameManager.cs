@@ -7,9 +7,11 @@ public class PuckMasterGameManager : MonoBehaviour{
 
 	private PuckMasterPlayer[] _players;
 	private int _activePlayer;
+	private PuckCollisionEffect _puckCollisionEffect;
 
 	private void Awake(){
 		_players = FindObjectsOfType<PuckMasterPlayer>();
+		_puckCollisionEffect = FindObjectOfType<PuckCollisionEffect>();
 
 		for (int i = 0; i < _players.Length; i++) {
 			_players[i].SetPlayerNumber(i);
@@ -55,6 +57,7 @@ public class PuckMasterGameManager : MonoBehaviour{
 	
 	public void EndTurn(){
 		CycleActivePlayer(null);
+		_puckCollisionEffect.StopZoomingToPoint();
 	}
 
 	public PuckMasterPlayer GetPlayerWithTag(string playerTag){

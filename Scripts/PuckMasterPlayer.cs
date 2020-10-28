@@ -53,7 +53,7 @@ public abstract class PuckMasterPlayer : MonoBehaviour{
   protected void Start(){
     foreach (var puck in pucks){
       puck.Initialise(this);
-      puck.gameObject.GetComponent<Renderer>().material.SetColor("_Color", PlayerColors[playerNumber]);
+      puck.gameObject.GetComponent<Renderer>().material.SetColor("_Color", GetPlayerColor());
     }
   }
   
@@ -129,6 +129,10 @@ public abstract class PuckMasterPlayer : MonoBehaviour{
   public int GetPlayerNumber(){
     return playerNumber;
   }
+
+  public Color GetPlayerColor(){
+    return PlayerColors[playerNumber];
+  }
   
   public PointAndShoot GetActivePuck(){
     var activePucks = GetPucksInPlay();
@@ -186,6 +190,10 @@ public abstract class PuckMasterPlayer : MonoBehaviour{
   public void Activate(){
     currentPhase = TurnPhase.PRE_TURN;
 
+    foreach (PointAndShoot puck in pucks){
+      puck.StartTurn();
+    }
+    
     foreach (PointAndShoot puck in GetPucksOutOfPlay()){
       puck.DecrementCooldown();
       if (puck.GetCooldown() <= 0){

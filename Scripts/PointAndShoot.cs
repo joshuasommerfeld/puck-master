@@ -7,8 +7,10 @@ public class PointAndShoot : MonoBehaviour{
 	private TrailRenderer _trailRenderer;
 	private Guid _uuid;
 	private int _cooldown;
-
 	private SpecialManager _special;
+	private TriggerPuckZoom _triggerPuckZoom;
+
+	private PuckCollisionEffect _puckCollisionEffect;
 
 	public GameObject onExplosionInstantiate;
 
@@ -32,15 +34,25 @@ public class PointAndShoot : MonoBehaviour{
 		_puckHighlight = GetComponentInChildren<PuckHighlight>();
 		_trailRenderer = GetComponentInChildren<TrailRenderer>();
 		_special = GetComponentInChildren<SpecialManager>();
+		_triggerPuckZoom = GetComponentInChildren<TriggerPuckZoom>();
 		_trailRenderer.enabled = false;
 	}
-	
+
+	void OnCollisionEnter2D(Collision2D other){
+		_special.OnPuckCollision(other);
+	}
+
+	void Update(){
+
+	}
+
 	/*
 	 * Mutation events
 	 */
 
 	public void Initialise(PuckMasterPlayer _player){
 		_special.Initialise(_player, this);
+		_triggerPuckZoom.Initialise(this);
 		this.tag = _player.tag;
 	}
 	
@@ -99,6 +111,12 @@ public class PointAndShoot : MonoBehaviour{
 		_rb.velocity = Vector3.zero;
 	}
 
+	public void StartTurn(){
+		_special.StartTurn();
+	}
+
+
+	
 	/*
 	* Getters events
 	*/

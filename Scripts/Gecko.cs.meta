@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 84a9c6aad5a113d4d8050938871ac546
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - puckSprite: {fileID: 21300000, guid: f183486b7a7def94f92e5133c9f38880, type: 3}
+  - avatarSprite: {fileID: 21300000, guid: cbef9278c5999f040ab763b4a08d48a2, type: 3}
+  - puckBloom: {fileID: 6484518219814362613, guid: 5b9fff3015e410a489429978dea9d7c3,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

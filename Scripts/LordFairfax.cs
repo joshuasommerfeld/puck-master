@@ -7,6 +7,7 @@ public class LordFairfax : AbstractSpecial {
     player = _player;
     puck = _puck;
   }
+  public override void StartTurn(){}
   
   private void Update(){
     if (!puck.IsActive()){
@@ -23,4 +24,5 @@ public class LordFairfax : AbstractSpecial {
   public void StopPuck(){
     puck.StopPuck();
   }
+  public override void OnPuckCollision(Collision2D collider2D){ }
 }

@@ -17,6 +17,12 @@ public class UI_PuckAvatar : MonoBehaviour{
   }
 
   private void Update(){
-    _image.sprite = _player.GetActivePuck().GetPuckSpecial().GetSpecialAvatar();
+    var image = _player.GetActivePuck().GetPuckSpecial().GetSpecialAvatar();
+    if (image){
+      _image.sprite = image;
+      _image.color = Color.white;
+    } else{
+      _image.color = Color.clear;
+    }
   }
 }

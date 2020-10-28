@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4348932170246162}
   - component: {fileID: 212061730247114396}
-  - component: {fileID: 114044706187805964}
   - component: {fileID: 114389369596945556}
   m_Layer: 0
   m_Name: ring
@@ -84,18 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &114044706187805964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1036504873665144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f06dfdd77fccb74f863dd97abd6388a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114389369596945556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +108,7 @@ GameObject:
   - component: {fileID: 114125809574700546}
   - component: {fileID: 2175646379666432018}
   - component: {fileID: 8837670498158859356}
+  - component: {fileID: 7570645441632506568}
   m_Layer: 0
   m_Name: special
   m_TagString: Untagged
@@ -212,15 +200,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259105814765180}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 895c62cd58b28354090e3e1a0bf8d9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   puckSprite: {fileID: 21300000, guid: cf65eb1f7f4b908458c5bc25aa9dd1c7, type: 3}
   avatarSprite: {fileID: 21300000, guid: cf65eb1f7f4b908458c5bc25aa9dd1c7, type: 3}
-  poopObject: {fileID: 0}
+  active: 0
 --- !u!114 &8837670498158859356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259105814765180}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2b1b5aeb5e91f4b802831c2e9624e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puckSprite: {fileID: 21300000, guid: fd2ddd2a1c645764a947410b88079f0a, type: 3}
+  avatarSprite: {fileID: 21300000, guid: f021617663730fb469c07c9d05feb77f, type: 3}
+  active: 0
+  wombatPoop: {fileID: 9014775147926019947, guid: 1ee5708149e6ca442a5489664f5ccdf9,
+    type: 3}
+--- !u!114 &7570645441632506568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,12 +234,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1259105814765180}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2b1b5aeb5e91f4b802831c2e9624e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 84a9c6aad5a113d4d8050938871ac546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puckSprite: {fileID: 21300000, guid: fd2ddd2a1c645764a947410b88079f0a, type: 3}
-  avatarSprite: {fileID: 21300000, guid: f021617663730fb469c07c9d05feb77f, type: 3}
-  wombatPoop: {fileID: 9014775147926019947, guid: 1ee5708149e6ca442a5489664f5ccdf9,
+  puckSprite: {fileID: 21300000, guid: f183486b7a7def94f92e5133c9f38880, type: 3}
+  avatarSprite: {fileID: 21300000, guid: cbef9278c5999f040ab763b4a08d48a2, type: 3}
+  active: 0
+  puckBloom: {fileID: 6484518219814362613, guid: 5b9fff3015e410a489429978dea9d7c3,
     type: 3}
 --- !u!1 &1675518933275122
 GameObject:
@@ -249,6 +255,7 @@ GameObject:
   - component: {fileID: 50044365107517212}
   - component: {fileID: 114262418473254708}
   - component: {fileID: 58507427403474766}
+  - component: {fileID: 4058315564088639271}
   m_Layer: 0
   m_Name: puck_object
   m_TagString: Untagged
@@ -270,6 +277,7 @@ Transform:
   - {fileID: 4348932170246162}
   - {fileID: 4338158011644170}
   - {fileID: 4206189719083178}
+  - {fileID: 1533377637156349230}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -341,7 +349,7 @@ Rigidbody2D:
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: db8904d850975864c82cdeb2310e772b, type: 2}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -375,6 +383,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.685
+--- !u!114 &4058315564088639271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675518933275122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bede6eaa1a37804abe33384bacff44d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sparks: {fileID: 5638950667464405028, guid: b45abcb657586dc4a81bf64434ef8f2c, type: 3}
 --- !u!1 &1802097678510218
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,3 +534,63 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!1 &8322723780177627924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1533377637156349230}
+  - component: {fileID: 3021198783603706469}
+  - component: {fileID: 8877817227105850168}
+  m_Layer: 0
+  m_Name: triggerPuckZoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1533377637156349230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8322723780177627924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4182313267576852}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &3021198783603706469
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8322723780177627924}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4
+--- !u!114 &8877817227105850168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8322723780177627924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71fa3b74bab6d91488e39bbbf01e3919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

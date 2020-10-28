@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 7794028}
   - component: {fileID: 7794030}
   - component: {fileID: 7794029}
+  - component: {fileID: 7794031}
   m_Layer: 0
   m_Name: 'Bouncer '
   m_TagString: Untagged
@@ -272,6 +273,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &7794031
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7794027}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &35616288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -333,7 +355,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: cf65eb1f7f4b908458c5bc25aa9dd1c7,
         type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 3483622038926977800, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483622040360960279, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483622040360960279, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: avatarSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cf65eb1f7f4b908458c5bc25aa9dd1c7,
+        type: 3}
+    - target: {fileID: 3483622040723609593, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6110412096604332983, guid: fe1b06e062999bd4b8f4a09f117c07f8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe1b06e062999bd4b8f4a09f117c07f8, type: 3}
 --- !u!1 &68783645
 GameObject:
@@ -715,6 +759,7 @@ GameObject:
   - component: {fileID: 296550772}
   - component: {fileID: 296550771}
   - component: {fileID: 296550770}
+  - component: {fileID: 296550773}
   m_Layer: 0
   m_Name: DeadSpike (5)
   m_TagString: Untagged
@@ -829,6 +874,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &296550773
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296550768}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &301651041
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +1012,29 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1494141033}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &324592226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3345405094362245527, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 35616288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &324592228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324592226}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2b1b5aeb5e91f4b802831c2e9624e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puckSprite: {fileID: 21300000, guid: fd2ddd2a1c645764a947410b88079f0a, type: 3}
+  avatarSprite: {fileID: 21300000, guid: f021617663730fb469c07c9d05feb77f, type: 3}
+  active: 0
+  wombatPoop: {fileID: 9014775147926019947, guid: 1ee5708149e6ca442a5489664f5ccdf9,
+    type: 3}
 --- !u!1 &441994628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 493519811}
+  - component: {fileID: 493519812}
   m_Layer: 12
   m_Name: Right
   m_TagString: Untagged
@@ -1109,6 +1199,27 @@ Transform:
   m_Father: {fileID: 1103999910}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &493519812
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493519810}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &495034126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,6 +1232,7 @@ GameObject:
   - component: {fileID: 495034130}
   - component: {fileID: 495034129}
   - component: {fileID: 495034128}
+  - component: {fileID: 495034131}
   m_Layer: 0
   m_Name: DeadSpike (2)
   m_TagString: Untagged
@@ -1235,6 +1347,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &495034131
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495034126}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!224 &573496147 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224389199377433054, guid: fb281ea25663d2846b6a104a6fe114fe,
@@ -1722,6 +1855,7 @@ GameObject:
   - component: {fileID: 674995542}
   - component: {fileID: 674995544}
   - component: {fileID: 674995543}
+  - component: {fileID: 674995545}
   m_Layer: 0
   m_Name: Bouncer (1)
   m_TagString: Untagged
@@ -1810,6 +1944,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &674995545
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674995541}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &724874955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,6 +2331,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &932733723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1829441693035514, guid: f4c24e31a0e034a43bcca3aa807dd5a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 476942656}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &932733727
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932733723}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &935956835
 GameObject:
   m_ObjectHideFlags: 0
@@ -2188,6 +2370,7 @@ GameObject:
   - component: {fileID: 935956839}
   - component: {fileID: 935956837}
   - component: {fileID: 935956836}
+  - component: {fileID: 935956838}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2211,6 +2394,18 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935956835}
   m_Enabled: 1
+--- !u!114 &935956838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935956835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4574857f78b4b243b21f252c7a7a409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &935956839
 Camera:
   m_ObjectHideFlags: 0
@@ -2353,14 +2548,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 23c8823f158e1f045b410d9a5cf3c54a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2863,6 +3058,7 @@ GameObject:
   - component: {fileID: 1310270090}
   - component: {fileID: 1310270092}
   - component: {fileID: 1310270091}
+  - component: {fileID: 1310270093}
   m_Layer: 0
   m_Name: Bouncer (3)
   m_TagString: Untagged
@@ -2951,6 +3147,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1310270093
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310270089}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1350639696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2962,6 +3179,7 @@ GameObject:
   - component: {fileID: 1350639697}
   - component: {fileID: 1350639699}
   - component: {fileID: 1350639698}
+  - component: {fileID: 1350639700}
   m_Layer: 12
   m_Name: Bottom
   m_TagString: Untagged
@@ -3060,6 +3278,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1350639700
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350639696}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!224 &1452087700 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224389199377433054, guid: fb281ea25663d2846b6a104a6fe114fe,
@@ -3197,6 +3436,7 @@ GameObject:
   - component: {fileID: 1522078324}
   - component: {fileID: 1522078326}
   - component: {fileID: 1522078325}
+  - component: {fileID: 1522078327}
   m_Layer: 0
   m_Name: Bouncer (2)
   m_TagString: Untagged
@@ -3285,6 +3525,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1522078327
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522078323}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &1601392283 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114755271946148930, guid: fb281ea25663d2846b6a104a6fe114fe,
@@ -3423,6 +3684,7 @@ GameObject:
   - component: {fileID: 1683925843}
   - component: {fileID: 1683925842}
   - component: {fileID: 1683925841}
+  - component: {fileID: 1683925844}
   m_Layer: 0
   m_Name: DeadSpike (1)
   m_TagString: Untagged
@@ -3537,6 +3799,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1683925844
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683925839}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1747408515
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,6 +3832,7 @@ GameObject:
   - component: {fileID: 1747408519}
   - component: {fileID: 1747408518}
   - component: {fileID: 1747408517}
+  - component: {fileID: 1747408520}
   m_Layer: 0
   m_Name: DeadSpike (4)
   m_TagString: Untagged
@@ -3663,6 +3947,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1747408520
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747408515}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1827385966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3674,6 +3979,7 @@ GameObject:
   - component: {fileID: 1827385967}
   - component: {fileID: 1827385969}
   - component: {fileID: 1827385968}
+  - component: {fileID: 1827385970}
   m_Layer: 0
   m_Name: Bouncer (4)
   m_TagString: Untagged
@@ -3762,6 +4068,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1827385970
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827385966}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1838605421
 GameObject:
   m_ObjectHideFlags: 0
@@ -3774,6 +4101,7 @@ GameObject:
   - component: {fileID: 1838605425}
   - component: {fileID: 1838605424}
   - component: {fileID: 1838605423}
+  - component: {fileID: 1838605426}
   m_Layer: 0
   m_Name: DeadSpike (3)
   m_TagString: Untagged
@@ -3888,6 +4216,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1838605426
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838605421}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1894264963
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,6 +4284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1898981340}
+  - component: {fileID: 1898981341}
   m_Layer: 12
   m_Name: Left
   m_TagString: Untagged
@@ -3961,6 +4311,27 @@ Transform:
   m_Father: {fileID: 1103999910}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1898981341
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898981339}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!224 &1936731134 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224389199377433054, guid: fb281ea25663d2846b6a104a6fe114fe,
@@ -4205,7 +4576,7 @@ Canvas:
   m_GameObject: {fileID: 2016880239}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 935956839}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -4225,8 +4596,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016880239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 88}
+  m_LocalScale: {x: 0.0155573115, y: 0.0155573115, z: 0.0155573115}
   m_Children:
   - {fileID: 263834617}
   - {fileID: 1894264964}
@@ -4238,9 +4609,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -1.5}
+  m_SizeDelta: {x: 1599.9999, y: 899.89844}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2016880244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4297,14 +4668,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 23c8823f158e1f045b410d9a5cf3c54a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4619,6 +4990,7 @@ GameObject:
   - component: {fileID: 2097017215}
   - component: {fileID: 2097017217}
   - component: {fileID: 2097017216}
+  - component: {fileID: 2097017218}
   m_Layer: 12
   m_Name: Top
   m_TagString: Untagged
@@ -4717,6 +5089,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2097017218
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097017214}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &2126168299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4979,11 +5372,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3214774297778074867, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375718429208114713, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483622038926977800, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483622038926977800, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3483622040360960279, guid: fe1b06e062999bd4b8f4a09f117c07f8,
         type: 3}
       propertyPath: avatarSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1cf41791ee75176439d008a3e712715a,
+      objectReference: {fileID: 21300000, guid: cf65eb1f7f4b908458c5bc25aa9dd1c7,
         type: 3}
+    - target: {fileID: 5150263063253034275, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110412095199797062, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110412096501675353, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110412096501675353, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110412096604332983, guid: fe1b06e062999bd4b8f4a09f117c07f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe1b06e062999bd4b8f4a09f117c07f8, type: 3}

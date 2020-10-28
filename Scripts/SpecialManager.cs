@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpecialManager : MonoBehaviour{
 
@@ -22,11 +23,17 @@ public class SpecialManager : MonoBehaviour{
 	void Awake (){
 		_specialSpriteRenderer = GetComponent<SpriteRenderer>();
 		specials = GetComponents<AbstractSpecial>();
-		var activeSpecials = specials.Where(_as => _as.enabled).ToArray();
-		if (activeSpecials.Length > 0){
-			activeSpecial = activeSpecials[0];
+
+		foreach (var abstractSpecial in specials){
+			abstractSpecial.enabled = false;
+			if (abstractSpecial.active){
+				if (!SpecialExists()){
+					activeSpecial = abstractSpecial;
+					activeSpecial.enabled = true;
+				}
+			}
 		}
-		
+
 		if (SpecialExists()){
 			_specialSpriteRenderer.sprite = activeSpecial.puckSprite;
 		}
@@ -35,11 +42,17 @@ public class SpecialManager : MonoBehaviour{
 	public void Initialise(PuckMasterPlayer _player, PointAndShoot _puck){
 		puck = _puck;
 		player = _player;
-		activeSpecial.Initialise(_player, _puck);
+		foreach (var abstractSpecial in specials){
+			abstractSpecial.Initialise(_player, _puck);
+		}
 	}
 
 	public Sprite GetSpecialAvatar(){
-		return activeSpecial.avatarSprite;
+		if (SpecialExists()){
+			return activeSpecial.avatarSprite;
+		}
+
+		return null;
 	}
 	
 	public void AddInputController(InputController ic){
@@ -69,6 +82,12 @@ public class SpecialManager : MonoBehaviour{
 	public void PostShot(){
 		if (SpecialExists()){
 			activeSpecial.PostShot();
+		}
+	}
+	
+	public void OnPuckCollision(Collision2D collider2D){
+		if (SpecialExists()){
+			activeSpecial.OnPuckCollision(collider2D);
 		}
 	}
 }

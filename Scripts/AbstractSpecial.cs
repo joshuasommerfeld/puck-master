@@ -12,14 +12,17 @@ public abstract class AbstractSpecial : MonoBehaviour{
   protected PuckMasterPlayer player;
   protected PointAndShoot puck;
 
+  public bool active;
+
   public void AddInputController(InputController ic){
     this.ic = ic;
   }
 
   public abstract void Initialise(PuckMasterPlayer _player, PointAndShoot _puck);
-  
-  public void StartTurn(){}
+
+  public abstract void StartTurn();
   public void PreShot(){}
   public void IsShooting(){}
   public void PostShot(){}
+  public abstract void OnPuckCollision(Collision2D collider2D);
 }

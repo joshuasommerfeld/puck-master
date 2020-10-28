@@ -10,6 +10,8 @@ public class Wombat : AbstractSpecial{
         player = _player;
         puck = _puck;
     }
+    
+    public override void StartTurn(){}
 
     // Update is called once per frame
     void Update(){
@@ -33,4 +35,5 @@ public class Wombat : AbstractSpecial{
         Instantiate(wombatPoop, spawnPoint, puck.gameObject.transform.rotation);
     }
 
+    public override void OnPuckCollision(Collision2D collider2D){ }
 }
