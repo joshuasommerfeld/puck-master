@@ -9,7 +9,8 @@ public class PuckCollisionEffect : MonoBehaviour{
     private const float _maxZoomOrthographicSize = 2;
     private const float minTimeScale = 0.05f;
     private const float _zoomSpeed = 0.02f;
-    private const float _normalCooldownTime = 3f;
+    private const float _slowCooldownTime = 1f;
+    private const float _normalCooldownTime = 2f;
 
     private Vector3 _originalPosition;
     private float _originalOrthographicSize;
@@ -28,8 +29,9 @@ public class PuckCollisionEffect : MonoBehaviour{
 
     private void CheckForZoomCooldown(){
         if (!_isCoolingDown){
+            Debug.Log("warming up");
             _cooldown += Time.deltaTime;
-            if (_cooldown > _normalCooldownTime * minTimeScale){
+            if (_cooldown > _slowCooldownTime * minTimeScale){
                 _isCoolingDown = true;
                 _cooldown = 0.0f;
             }
@@ -38,6 +40,7 @@ public class PuckCollisionEffect : MonoBehaviour{
 
     private void CheckForCooldownReset(){
         if (_isCoolingDown){
+            Debug.Log("cooling down");
             _cooldown += Time.deltaTime;
             if (_cooldown > _normalCooldownTime){
                 _isCoolingDown = false;
@@ -73,7 +76,6 @@ public class PuckCollisionEffect : MonoBehaviour{
         if (_zoomInterpolate <= 0){
             _zoomInterpolate = 0;
         }
-        Debug.Log(_zoomInterpolate);
         
         Time.timeScale = 1;
         transform.position = Vector3.Lerp(_originalPosition, _zoomPoint, _zoomInterpolate);

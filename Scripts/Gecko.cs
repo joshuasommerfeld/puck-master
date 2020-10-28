@@ -40,6 +40,9 @@ public class Gecko : AbstractSpecial{
     }
 
     public override void OnPuckCollision(Collision2D collider2D){
+        if (!puck.IsActive() || !player.GetCurrentPhase().Equals(PuckMasterPlayer.TurnPhase.POST_SHOT)){
+            return;
+        }
         if (_stuckTo == null){
             _stuckTo = collider2D.gameObject.AddComponent<FixedJoint2D>();
             _stuckTo.anchor = collider2D.contacts[0].point;
