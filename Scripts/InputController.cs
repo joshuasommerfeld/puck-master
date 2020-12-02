@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InputController : MonoBehaviour{
-
   private GameConfig _config;
   private Camera _camera;
 
@@ -71,16 +70,29 @@ public class InputController : MonoBehaviour{
       return Input.GetMouseButtonUp(0);
     }
 
-    return false;  }
+    return false;
+  }  
+  
+  public bool GetCancel(){
+    if (IsGamepad()){
+      return Input.GetButtonUp("Cancel");
+    }
+
+    if (IsMouseAndKeyboard()){
+      return Input.GetMouseButtonUp(1);
+    }
+
+    return false;
+  }
 
   public bool GetPuckSelect(){
     return GetSubmit();
   }
-  
+
   public bool GetPuckPlace(){
     return GetSubmit();
   }
-  
+
   public bool IsShootingPuck(){
     if (IsGamepad()){
       return Input.GetButton("Submit");
@@ -92,7 +104,7 @@ public class InputController : MonoBehaviour{
 
     return false;
   }
-  
+
   public bool ShotReleased(){
     if (IsGamepad()){
       return Input.GetButtonUp("Submit");
@@ -113,8 +125,9 @@ public class InputController : MonoBehaviour{
 
     if (IsMouseAndKeyboard()){
       var worldPoint = _camera.ScreenToWorldPoint(Input.mousePosition);
-      return Vector3.MoveTowards(currentPosition, worldPoint, 1);
+      return Vector3.MoveTowards(currentPosition, worldPoint, 4);
     }
+
     return Vector3.zero;
   }
 }
